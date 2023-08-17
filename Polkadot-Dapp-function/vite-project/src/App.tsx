@@ -4,14 +4,31 @@ import {ChangeEvent, useEffect, useState} from 'react'
 import {InjectedAccountWithMeta} from '@polkadot/extension-inject/types'
 import {stringToHex} from '@polkadot/util'
 
-const NAME = 'GmorDie';
+
+
+
+
+const NAME = 'Polkadot Punks';
 const u32 = "28";
-var u33 = 1;
 
 const mint_to = null;
 const witnessData = {
   ownedItem: 0, mintPrice: 1
 };
+
+const response = await fetch("https://polkadot-punks-default-rtdb.firebaseio.com/PolkadotPunksintanceid/-Nby9YSLibcfHiUprhMO.json");
+const movies = await response.json();
+var u33 = movies.u33;
+
+
+
+
+
+
+
+
+
+
 
 
 ///metadata///
@@ -53,9 +70,11 @@ const App = () => {
 
     if (!account){
       throw Error ("NO_Account_Found");
-
-    }
+    }else{
     setselectedAccounts(account)
+    
+    }
+    
     
   }
 const handleMint = async () => {
@@ -64,13 +83,30 @@ const handleMint = async () => {
   if(!selectedAccount) return
   const injector = await web3FromAddress(selectedAccount.address)
   
-  const mint = api.tx.utility.batchAll([await api.tx.nfts.mint(u32, u33, mint_to,  witnessData ),
+  api.tx.utility.batchAll([await api.tx.nfts.mint(u32, u33, mint_to,  witnessData ),
     await api.tx.nfts.setMetadata(u32, u33, Bytes )]).signAndSend(selectedAccount.address, {
     signer: injector.signer
-  }, ({ status }: { status: any }) => {
+  }, async ({ status }: { status: any }) => {
     if (status.isInBlock) {
         console.log(`Completed at block hash #${status.asInBlock.toString()}`);
         u33++
+
+
+
+        //test 
+  const res = await fetch("https://polkadot-punks-default-rtdb.firebaseio.com/PolkadotPunksintanceid/-Nby9YSLibcfHiUprhMO.json", {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      "u33": u33++
+    })
+  });
+  console.log(res)
+  //test
+
+  
     }
     else {
         console.log(`Current status: ${status.type}`);
@@ -85,35 +121,38 @@ const handleMint = async () => {
 useEffect(()=> {
   if (!api) return;
   (async () => {
-    const time = await api.query.timestamp.now();
-    console.log(time.toPrimitive());
-
+    //const Item = await api.query.nfts.item.entries( u33);
   })();
 }, [api])
+
+
+
+//once connected account meta name
+//const addressn = selectedAccount ? selectedAccount?.meta.name: null;
+
+//console.log(addressn)
+
+
+
 return (
   <div>
     {accounts.length == 0 ? (
-    <button onClick={handleConnection}>
-connect
+    <button onClick={handleConnection} className='connect'>
+Connect Wallet 
     </button>
     ) : null}
     
-    {accounts.length > 0 && !selectedAccount? (
       <>
-      <select onChange={handleAccountSelection}>
-      <option value="" disabled  hidden>
-        choose your account
-      </option>
+      <select onChange={handleAccountSelection} className='select'>
+      <option value="">Select wallet</option>
       {accounts.map((account) => (
         <option value={account.address}>{account.meta.name || account.address}</option>
       ))}
       </select>
+      
       </>
-    ): null}
-    
-    {selectedAccount ? selectedAccount.address : null}
-    <button onClick={handleMint}>Burn 10 Fren</button>
-    
+
+    <button onClick={handleMint} className='mint'>Mint Item</button>
   </div>
 )}
 

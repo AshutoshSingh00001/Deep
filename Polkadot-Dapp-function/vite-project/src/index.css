@@ -1,0 +1,122 @@
+.mint{
+    background-color: #ff8eca;
+  align-items: center;
+  background-position: 0 0;
+  border: 1px solid #ff95cd;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #d30071;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 33.4929px;
+  list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+  padding: 2px 12px;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-underline-offset: 1px;
+  transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  word-break: break-word;
+  position: absolute;
+		top: 50%;
+        position: fixed;
+	   left: 50%;
+	   top:50%;
+       margin: auto;
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	bottom: 0;
+ 	right: 0;
+  	height: 40px;
+	width: 100px;
+  
+
+.mint:active,
+.mint:hover,
+.mint:focus {
+  outline: 0;
+}
+
+
+.mint:active {
+  background-color: #c8006a;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
+}
+
+.mint:hover {
+  background-color: #ff9cd1;
+  border-color: #ffdaee;
+}
+
+.mint:active:hover,
+.mint:focus:hover,
+.mint:focus {
+  background-color: #cd006d;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
+}
+}
+.connect{
+    background-color: #ff8eca;
+  align-items: center;
+  background-position: 0 0;
+  border: 1px solid #ff95cd;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #d30071;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 33.4929px;
+  list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+  padding: 2px 12px;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-underline-offset: 1px;
+  transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  word-break: break-word;
+  float: right;
+  font-family: Trebuchet MS;
+}
+.select{
+  background-color: #ff8eca;
+  align-items: center;
+  background-position: 0 0;
+  border: 1px solid #ff95cd;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #d30071;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 33.4929px;
+  list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+  padding: 2px 12px;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-underline-offset: 1px;
+  transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  word-break: break-word;
+  float: right;
+  font-family: Trebuchet MS;
+}

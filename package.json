@@ -2,6 +2,11 @@
   "dependencies": {
     "@polkadot/extension-dapp": "^0.46.5",
     "@polkadot/react-identicon": "^3.5.1",
-    "bn.js": "^5.2.1"
+    "bn.js": "^5.2.1",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7"
   }
 }
